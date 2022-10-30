@@ -18,7 +18,7 @@ export function OptionsCountry() {
             value=""
             key={pais.name}
             className={
-              "border border-slate-500 rounded w-full py-2 px-3 text-white text-base bg-green-400"
+              "border border-slate-500 rounded w-full py-2 px-3 text-white text-base "
             }
           >
             {pais.name}

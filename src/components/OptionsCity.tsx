@@ -18,7 +18,7 @@ export function OptionsCity() {
     <>
       {countries.map((pais) => (
         <>
-          <option value="" key={pais.name} className="border border-slate-500 bg-green-400 text-white rounded py-2 px-3 text-base ">
+          <option value="" key={pais.name} className="border border-slate-500 text-white rounded py-2 px-3 text-base ">
             {pais.name}
           </option>
         </>

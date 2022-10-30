@@ -1,7 +1,11 @@
-import { OptionsCountry } from "./OptionsCountry";
-import { OptionsCity } from "./OptionsCity";
-import { Input } from "./Input";
-import { inputs } from "./inputs";
+import { useState } from "react";
+
+import { OptionsCountry } from "./components/OptionsCountry";
+import { OptionsCity } from "./components/OptionsCity";
+import { Input } from "./components/Input";
+import { inputs } from "./components/inputs";
+import { Title } from "./components/Title";
+import { ButtonForm } from "./components/ButtonForm";
 
 export default function App() {
   window.onmousedown = function (e) {
@@ -20,31 +24,29 @@ export default function App() {
     }
   };
 
+
   return (
-    <div className="w-full h-screen  flex flex-col items-center bg-[#3ea3af]">
-      <p className="text-white text-4xl font-bold">Formulário de cadastro</p>
-      <div className="bg-[#9fd9b3] rounded-lg h-full w-1/2 my-5 flex flex-col items-center py-16">
-        <form className="w-full h-full flex flex-col justify-center items-center  gap-3">
-          {inputs.map((input) => (
-            <Input name={input.name} />
-          ))}
-          <div className=" flex flex-col w-full justify-center items-center gap-3">
-            <label> Destinos de interesse </label>
-            <select placeholder="País" multiple className="w-2/3 ">
+    <div className="w-full h-screen  flex flex-col items-center bg-slate-600">
+      <Title />
+      <div className=" rounded-lg h-full w-full ">
+        <form className="w-full h-full flex  ">
+          <div className="w-1/2 flex flex-col items-center justify-center gap-2">
+            <p className="font-bold text-2xl text-green-400">Dados pessoais</p>
+            {inputs.map((input) => (
+              <Input name={input.name}/>
+            ))}
+          </div>
+          <div className=" flex flex-col  justify-center items-center gap-3">
+            <p className="font-bold text-2xl text-green-400">Destinos de interesse</p>
+            <select placeholder="País" multiple className="w-2/3 bg-slate-600" >
               <OptionsCountry />/
             </select>
-            <select placeholder="País" multiple className="w-2/3">
+            <select placeholder="País" multiple className="w-2/3 bg-slate-600 " >
               <OptionsCity />
             </select>
           </div>
-          <div className="container grid grid-cols-4 gap-16 mx-auto"></div>
-          <button
-            onClick={() => {}}
-            className="py-2.5 px-5 mr-2 mb-2 bg-blue-500 rounded-lg text-white font-bold"
-          >
-            Cadastrar
-          </button>
         </form>
+        <ButtonForm />
       </div>
     </div>
   );
